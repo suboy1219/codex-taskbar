@@ -4,6 +4,12 @@
 
 把 Codex 的额度信息显示在 Windows 底部状态栏（通知区域）：托盘图标显示 5 小时剩余百分比，底部常驻小条显示 `5h / 周` 两项余量，点击任意一个都会弹出与 macOS CodexBar 同款的深色用量面板。
 
+## 下载
+
+[下载 Windows x64 版](https://github.com/suboy1219/codex-taskba/releases/latest/download/CodexTaskbar.exe) · [所有版本](https://github.com/suboy1219/codex-taskba/releases)
+
+下载后直接运行 `CodexTaskbar.exe`，无需安装 .NET 运行时。使用前请先在本机登录 Codex。
+
 <p align="center">
   <img src="docs/preview.png" alt="Codex 托盘用量预览" width="900">
 </p>

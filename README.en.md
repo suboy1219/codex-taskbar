@@ -4,6 +4,12 @@ English | [简体中文](README.md)
 
 Show Codex quota information in the Windows notification area: the tray icon displays the remaining percentage for the 5-hour window, a small always-on-top pill shows both `5h / weekly` quotas, and clicking either one opens a dark usage panel inspired by macOS CodexBar.
 
+## Download
+
+[Download for Windows x64](https://github.com/suboy1219/codex-taskba/releases/latest/download/CodexTaskbar.exe) · [All releases](https://github.com/suboy1219/codex-taskba/releases)
+
+Run the downloaded `CodexTaskbar.exe` directly; no separate .NET runtime is required. Sign in to Codex on your computer before using the app.
+
 <p align="center">
   <img src="docs/preview.png" alt="Codex Taskbar preview" width="900">
 </p>
