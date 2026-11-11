@@ -1,5 +1,7 @@
 # Codex 托盘用量
 
+[English](README.en.md) | 简体中文
+
 把 Codex 的额度信息显示在 Windows 底部状态栏（通知区域）：托盘图标显示 5 小时剩余百分比，底部常驻小条显示 `5h / 周` 两项余量，点击任意一个都会弹出与 macOS CodexBar 同款的深色用量面板。
 
 ## 功能
