@@ -18,12 +18,12 @@ Run the downloaded `CodexTaskbar.exe` directly; no separate .NET runtime is requ
 
 | Usage panel | Status pill |
 | :---: | :---: |
-| <img src="docs/panel.png" alt="Usage panel" width="320"> | <img src="docs/strip.png" alt="Status pill" width="198"> |
+| <img src="docs/panel.png" alt="Usage panel" width="320"> | <img src="docs/strip.png" alt="Status pill" width="160"> |
 
 ## Features
 
 - Tray icon: a large number showing the remaining percentage of the 5-hour window, with a thin color-coded progress bar (green / orange / red)
-- Status pill: a 198×28 gradient capsule with a status dot and `5h 81% · Week 64%`, highlighted on hover; **draggable** anywhere, snaps to screen edges on release, and remembers its position
+- Status pill: a 160×24 gradient capsule with a status dot and `5h 81% · Week 64%`, highlighted on hover; **draggable** anywhere, snaps to screen edges on release, and remembers its position
 - Compact usage panel (320×226): header with status dot and `PLUS` badge, two cards for the 5-hour and weekly limits (remaining percentage, full-width progress bar, reset time), credits and update time, and a refresh button; the panel opens above or below the pill automatically
 - Refreshes every 60 seconds; the context menu supports manual refresh, showing/hiding the pill, launch at login, and exit
 - Reuses the local Codex login (`~/.codex/auth.json`) and refreshes the token automatically when it expires

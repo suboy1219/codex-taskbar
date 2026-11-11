@@ -5,8 +5,8 @@ namespace CodexTaskbar;
 
 internal sealed class UsageStrip : Form
 {
-    private const int LogicalWidth = 198;
-    private const int LogicalHeight = 28;
+    private const int LogicalWidth = 160;
+    private const int LogicalHeight = 24;
 
     private static readonly Color BackgroundTop = Color.FromArgb(42, 42, 47);
     private static readonly Color BackgroundBottom = Color.FromArgb(23, 23, 26);
@@ -317,19 +317,19 @@ internal sealed class UsageStrip : Form
 
         using (var highlight = new Pen(Color.FromArgb(16, 255, 255, 255), 1f))
         {
-            g.DrawLine(highlight, 16 * s, 1.5f * s, width - 16 * s, 1.5f * s);
+            g.DrawLine(highlight, 12 * s, 1.5f * s, width - 12 * s, 1.5f * s);
         }
 
         if (_error || _snapshot == null)
         {
-            DrawDot(g, 15 * s, height / 2f, _error ? DangerColor : WarningColor, s);
+            DrawDot(g, 12 * s, height / 2f, _error ? DangerColor : WarningColor, s);
             TextRenderer.DrawText(
                 g,
-                _error ? "无法获取 Codex 额度" : "正在获取 Codex 额度…",
+                _error ? "额度获取失败" : "正在获取额度…",
                 _messageFont,
-                new Rectangle((int)(25 * s), 0, (int)(width - 34 * s), (int)height),
+                new Rectangle((int)(21 * s), 0, (int)(width - 30 * s), (int)height),
                 _error ? DangerColor : MutedColor,
-                TextFormatFlags.Left | TextFormatFlags.VerticalCenter | TextFormatFlags.NoPrefix | TextFormatFlags.SingleLine);
+                TextFormatFlags.Left | TextFormatFlags.VerticalCenter | TextFormatFlags.NoPrefix | TextFormatFlags.SingleLine | TextFormatFlags.NoPadding | TextFormatFlags.EndEllipsis);
             return;
         }
 
@@ -340,7 +340,7 @@ internal sealed class UsageStrip : Form
 
         var primaryLabel = ShortLabel(_snapshot.PrimaryLabel);
         var secondaryLabel = ShortLabel(_snapshot.SecondaryLabel);
-        var flags = TextFormatFlags.Left | TextFormatFlags.VerticalCenter | TextFormatFlags.NoPrefix | TextFormatFlags.SingleLine;
+        var flags = TextFormatFlags.Left | TextFormatFlags.VerticalCenter | TextFormatFlags.NoPrefix | TextFormatFlags.SingleLine | TextFormatFlags.NoPadding;
         var measureFlags = TextFormatFlags.NoPadding | TextFormatFlags.SingleLine;
         var primaryLabelSize = TextRenderer.MeasureText(g, primaryLabel, _labelFont, new Size(int.MaxValue, int.MaxValue), measureFlags);
         var primaryValueSize = TextRenderer.MeasureText(g, primaryText, _valueFont, new Size(int.MaxValue, int.MaxValue), measureFlags);
@@ -348,9 +348,9 @@ internal sealed class UsageStrip : Form
         var secondaryValueSize = TextRenderer.MeasureText(g, secondaryText, _valueFont, new Size(int.MaxValue, int.MaxValue), measureFlags);
 
         var dotSize = 5 * s;
-        var afterDot = 6 * s;
-        var afterLabel = 5 * s;
-        var dividerGap = 12 * s;
+        var afterDot = 4 * s;
+        var afterLabel = 3 * s;
+        var dividerGap = 8 * s;
         var segmentOne = dotSize + afterDot + primaryLabelSize.Width + afterLabel + primaryValueSize.Width;
         var segmentTwo = dotSize + afterDot + secondaryLabelSize.Width + afterLabel + secondaryValueSize.Width;
         var contentWidth = segmentOne + dividerGap * 2 + 1 + segmentTwo;
@@ -366,7 +366,7 @@ internal sealed class UsageStrip : Form
 
         using (var divider = new Pen(Color.FromArgb(24, 255, 255, 255), 1f))
         {
-            g.DrawLine(divider, x, 8 * s, x, height - 8 * s);
+            g.DrawLine(divider, x, 6 * s, x, height - 6 * s);
         }
 
         x += 1 + dividerGap;
