@@ -4,6 +4,16 @@
 
 把 Codex 的额度信息显示在 Windows 底部状态栏（通知区域）：托盘图标显示 5 小时剩余百分比，底部常驻小条显示 `5h / 周` 两项余量，点击任意一个都会弹出与 macOS CodexBar 同款的深色用量面板。
 
+<p align="center">
+  <img src="docs/preview.png" alt="Codex 托盘用量预览" width="900">
+</p>
+
+## 界面
+
+| 用量面板 | 常驻状态条 |
+| :---: | :---: |
+| <img src="docs/panel.png" alt="用量面板" width="320"> | <img src="docs/strip.png" alt="常驻状态条" width="198"> |
+
 ## 功能
 
 - 托盘图标：大号数字显示 5 小时窗口剩余百分比，底部细进度条按余量变色（绿 / 橙 / 红）

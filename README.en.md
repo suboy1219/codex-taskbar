@@ -4,6 +4,16 @@ English | [简体中文](README.md)
 
 Show Codex quota information in the Windows notification area: the tray icon displays the remaining percentage for the 5-hour window, a small always-on-top pill shows both `5h / weekly` quotas, and clicking either one opens a dark usage panel inspired by macOS CodexBar.
 
+<p align="center">
+  <img src="docs/preview.png" alt="Codex Taskbar preview" width="900">
+</p>
+
+## Interface
+
+| Usage panel | Status pill |
+| :---: | :---: |
+| <img src="docs/panel.png" alt="Usage panel" width="320"> | <img src="docs/strip.png" alt="Status pill" width="198"> |
+
 ## Features
 
 - Tray icon: a large number showing the remaining percentage of the 5-hour window, with a thin color-coded progress bar (green / orange / red)
