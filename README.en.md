@@ -6,7 +6,7 @@ Show Codex quota information in the Windows notification area: the tray icon dis
 
 ## Download
 
-[Download for Windows x64](https://github.com/suboy1219/codex-taskba/releases/latest/download/CodexTaskbar.exe) · [All releases](https://github.com/suboy1219/codex-taskba/releases)
+[Download for Windows x64](https://github.com/suboy1219/codex-taskbar/releases/latest/download/CodexTaskbar.exe) · [All releases](https://github.com/suboy1219/codex-taskbar/releases)
 
 Run the downloaded `CodexTaskbar.exe` directly; no separate .NET runtime is required. Sign in to Codex on your computer before using the app.
 

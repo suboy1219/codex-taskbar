@@ -6,7 +6,7 @@
 
 ## 下载
 
-[下载 Windows x64 版](https://github.com/suboy1219/codex-taskba/releases/latest/download/CodexTaskbar.exe) · [所有版本](https://github.com/suboy1219/codex-taskba/releases)
+[下载 Windows x64 版](https://github.com/suboy1219/codex-taskbar/releases/latest/download/CodexTaskbar.exe) · [所有版本](https://github.com/suboy1219/codex-taskbar/releases)
 
 下载后直接运行 `CodexTaskbar.exe`，无需安装 .NET 运行时。使用前请先在本机登录 Codex。
 
