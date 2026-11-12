@@ -16,14 +16,14 @@ Run the downloaded `CodexTaskbar.exe` directly; no separate .NET runtime is requ
 
 ## Interface
 
-| Usage panel | Status pill |
-| :---: | :---: |
-| <img src="docs/panel.png" alt="Usage panel" width="320"> | <img src="docs/strip.png" alt="Status pill" width="160"> |
+| Usage panel | Status pill | Docked |
+| :---: | :---: | :---: |
+| <img src="docs/panel.png" alt="Usage panel" width="320"> | <img src="docs/strip.png" alt="Status pill" width="160"> | <img src="docs/docked.png" alt="Docked tab" width="120"> |
 
 ## Features
 
 - Tray icon: a large number showing the remaining percentage of the 5-hour window, with a thin color-coded progress bar (green / orange / red)
-- Status pill: a 160×24 gradient capsule with a status dot and `5h 81% · Week 64%`, highlighted on hover; **draggable** anywhere, snaps to screen edges on release, and remembers its position
+- Status pill: a 160×24 gradient capsule with a status dot and `5h 81% · Week 64%`, highlighted on hover; **draggable** anywhere. Drop it near the left or right screen edge to collapse into a 14×48 docked tab; drag the tab outward to restore the full pill. Position and dock state are remembered
 - Compact usage panel (320×226): header with status dot and `PLUS` badge, two cards for the 5-hour and weekly limits (remaining percentage, full-width progress bar, reset time), credits and update time, and a refresh button; the panel opens above or below the pill automatically
 - Refreshes every 60 seconds; the context menu supports manual refresh, showing/hiding the pill, launch at login, and exit
 - Reuses the local Codex login (`~/.codex/auth.json`) and refreshes the token automatically when it expires
@@ -65,7 +65,7 @@ D:\github\codex-taskbar\dist\CodexTaskbar.exe --check D:\github\codex-taskbar\us
 - Windows does not allow third-party apps to insert text directly into the taskbar icon area. The notification area is the official equivalent, so the app combines a tray icon, a small always-on-top pill, and a popup panel.
 - If Windows hides the tray icon in the `^` overflow area, drag it into the visible area to pin it.
 - The status pill is a topmost floating window and occupies a small area above the taskbar. Untick "Show status pill" in the tray context menu when you do not need it.
-- Drag the pill with the left mouse button; it snaps when released near a screen edge. Its position is stored in `settings.json`, and "Reset status pill position" in the tray context menu restores the default bottom-right position.
+- Drag the pill with the left mouse button; dropping it near the left or right edge docks it as a slim tab, and dragging the tab outward restores the full pill. Its position and dock state are stored in `settings.json`, and "Reset status pill position" in the tray context menu restores the default bottom-right position.
 - Logs are written to `%APPDATA%\CodexTaskbar\app.log`, and settings to `%APPDATA%\CodexTaskbar\settings.json`.
 - The app only reads existing local credentials. It does not upload or persist tokens.
 - Only one instance is allowed; launching it again exits immediately.

@@ -10,6 +10,8 @@ internal sealed class AppSettings
 
     public int? StripTop { get; set; }
 
+    public string? DockSide { get; set; }
+
     public static string Dir =>
         Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CodexTaskbar");
 
