@@ -22,7 +22,7 @@ Run the downloaded `CodexTaskbar.exe` directly; no separate .NET runtime is requ
 
 ## Features
 
-- Tray icon: a large number showing the remaining percentage of the 5-hour window, with a thin color-coded progress bar (green / orange / red)
+- Tray icon: a large number showing the remaining percentage of the 5-hour window, adapting automatically to the Windows taskbar's light / dark theme, with a thin color-coded progress bar (green / orange / red)
 - Status pill: a 160×24 gradient capsule with a status dot and `5h 81% · Week 64%`, highlighted on hover; **draggable** anywhere. Drop it near the left or right screen edge to collapse into a 14×48 docked tab; drag the tab outward to restore the full pill. Position and dock state are remembered
 - Compact usage panel (320×226): header with status dot and `PLUS` badge, two cards for the 5-hour and weekly limits (remaining percentage, full-width progress bar, reset time), credits and update time, and a refresh button; the panel opens above or below the pill automatically
 - Refreshes every 60 seconds; the context menu supports manual refresh, showing/hiding the pill, launch at login, and exit

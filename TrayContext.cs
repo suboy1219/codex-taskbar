@@ -11,7 +11,10 @@ internal sealed class TrayContext : ApplicationContext
     private readonly NotifyIcon _tray;
     private readonly System.Windows.Forms.Timer _timer;
     private readonly ToolStripMenuItem _stripMenuItem;
+    private readonly ThemeChangeWindow _themeWindow;
     private Icon? _currentIcon;
+    private int? _iconRemaining;
+    private bool _iconError;
     private UsageSnapshot? _lastSnapshot;
     private bool _busy;
 
@@ -58,6 +61,7 @@ internal sealed class TrayContext : ApplicationContext
         };
 
         UpdateIcon(null, error: false);
+        _themeWindow = new ThemeChangeWindow(() => UpdateIcon(_iconRemaining, _iconError));
 
         if (_settings.ShowStrip)
         {
@@ -188,6 +192,8 @@ internal sealed class TrayContext : ApplicationContext
 
     private void UpdateIcon(int? remaining, bool error)
     {
+        _iconRemaining = remaining;
+        _iconError = error;
         var next = TrayIconRenderer.Create(remaining, error);
         var previous = _currentIcon;
         _currentIcon = next;
@@ -197,6 +203,7 @@ internal sealed class TrayContext : ApplicationContext
 
     private void ExitApp()
     {
+        _themeWindow.DestroyHandle();
         _timer.Stop();
         _tray.Visible = false;
         _tray.Dispose();
@@ -206,5 +213,27 @@ internal sealed class TrayContext : ApplicationContext
         _panel.Dispose();
         _currentIcon?.Dispose();
         ExitThread();
+    }
+
+    // A hidden top-level window receives theme broadcasts on the UI thread,
+    // even when both the panel and the status strip are hidden.
+    private sealed class ThemeChangeWindow : NativeWindow
+    {
+        private readonly Action _refresh;
+
+        public ThemeChangeWindow(Action refresh)
+        {
+            _refresh = refresh;
+            CreateHandle(new CreateParams());
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg is 0x0015 or 0x001A or 0x031A) // WM_SYSCOLORCHANGE / WM_SETTINGCHANGE / WM_THEMECHANGED
+            {
+                _refresh();
+            }
+        }
     }
 }
