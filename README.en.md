@@ -69,3 +69,7 @@ D:\github\codex-taskbar\dist\CodexTaskbar.exe --check D:\github\codex-taskbar\us
 - Logs are written to `%APPDATA%\CodexTaskbar\app.log`, and settings to `%APPDATA%\CodexTaskbar\settings.json`.
 - The app only reads existing local credentials. It does not upload or persist tokens.
 - Only one instance is allowed; launching it again exits immediately.
+
+## Check for updates
+
+Right-click the system tray icon and choose **Help → Check for updates** (帮助 → 检测更新). The app compares its version with the latest stable GitHub release and offers to open the release page when an update is available. It also reports missing releases and connection errors.

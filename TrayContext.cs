@@ -108,6 +108,7 @@ internal sealed class TrayContext : ApplicationContext
         menu.Items.Add(autoStartItem);
 
         menu.Items.Add(new ToolStripSeparator());
+        menu.Items.Add(HelpMenu.Create());
         menu.Items.Add("退出", null, (_, _) => ExitApp());
         return menu;
     }

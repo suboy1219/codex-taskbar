@@ -69,3 +69,7 @@ D:\github\codex-taskbar\dist\CodexTaskbar.exe --check D:\github\codex-taskbar\us
 - 日志位于 `%APPDATA%\CodexTaskbar\app.log`，设置位于 `%APPDATA%\CodexTaskbar\settings.json`。
 - 程序只读取本机已有的登录凭证，不上传、不落盘保存 token。
 - 同一时间只允许运行一个实例；重复启动会直接退出。
+
+## 检测更新
+
+右键系统托盘图标，选择 **帮助 → 检测更新**。程序会比较当前版本和本项目 GitHub 最新正式发布版；发现新版后可选择打开发布页下载。无正式发布版或网络失败时会显示提示。
