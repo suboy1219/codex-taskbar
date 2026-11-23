@@ -1,5 +1,7 @@
 # Codex Tray Usage
 
+官网: [https://suboy1219.github.io/suboy](https://suboy1219.github.io/suboy)
+
 English | [简体中文](README.md)
 
 Show Codex quota information in the Windows notification area: the tray icon displays the remaining percentage for the 5-hour window, a small always-on-top pill shows both `5h / weekly` quotas, and clicking either one opens a dark usage panel inspired by macOS CodexBar.
