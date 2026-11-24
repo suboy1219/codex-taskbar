@@ -58,6 +58,9 @@ internal sealed class UsageStrip : Form
         BackColor = BackgroundTop;
         DoubleBuffered = true;
         AutoScaleMode = AutoScaleMode.None;
+        // Set the small borderless size before WinForms creates the native window.
+        ClientSize = VisibleSize;
+        ResizeRedraw = true;
         Cursor = Cursors.Hand;
     }
 
@@ -106,8 +109,30 @@ internal sealed class UsageStrip : Form
 
     private void ApplyScale()
     {
-        var size = VisibleSize;
-        ClientSize = size;
+        ClientSize = VisibleSize;
+        UpdateWindowRegion();
+        Invalidate();
+    }
+
+    protected override void OnSizeChanged(EventArgs e)
+    {
+        base.OnSizeChanged(e);
+        if (IsHandleCreated)
+        {
+            UpdateWindowRegion();
+        }
+    }
+
+    private void UpdateWindowRegion()
+    {
+        // Native creation and DPI changes can adjust ClientSize after ApplyScale.
+        // Keep clipping in sync with the same bounds that OnPaint uses.
+        var size = ClientSize;
+        if (size.Width <= 0 || size.Height <= 0)
+        {
+            return;
+        }
+
         using var path = _collapsed
             ? DockTabPath(new RectangleF(0, 0, size.Width, size.Height), _dockSide, size.Width / 2f)
             : RoundedRect(new RectangleF(0, 0, size.Width, size.Height), size.Height / 2f);
